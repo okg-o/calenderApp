@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}"
+>
+<head>
+    <title th:text="${mode == 'CREATE'} ? '予定作成' : '予定編集'">予定作成</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div>
+        <form th:action="${mode == 'CREATE'} ? @{/methods} : @{/methods/{id}(id=${id})}"
+              th:method="${mode == 'CREATE'} ? post : put"
+              th:object="${planForm}">
+            <div class="form-group mt-3">
+                <label for="titleInput">タイトル</label>
+                <input type="text" id="titleInput" th:field="*{title}" class="form-control" th:errorclass="is-invalid">
+                <span th:errors="*{title}" class="invalid-feedback"></span>
+            </div>
+            <div class="form-group mt-3">
+                <label for="descriptionInput" class="form-label">説明</label>
+                <textarea  id="descriptionInput" th:field="*{description}" class="form-control" rows="5" th:errorclass="is-invalid"></textarea>
+                <span th:errors="*{description}" class="invalid-feedback"></span>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="startDayInput" class="form-label">開始日</label>
+                    <input type="date" value="2024-05-22" min="2018-01-01" max="2025-01-01" id="startDayInput"
+                           th:field="*{startDay}" class="form-control" th:errorclass="is-invalid">
+                    <span th:errors="*{startDay}" class="invalid-feedback"></span>
+                </div>
+                <div class="col">
+                    <label for="startTimeInput" class="form-label">開始時間</label>
+                    <input type="time" value="20:40" id="startTimeInput" th:field="*{startTime}" class="form-control" th:errorclass="is-invalid">
+                    <span th:errors="*{startTime}" class="invalid-feedback"></span>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="endDayInput" class="form-label">終了日</label>
+                    <input type="date" value="2024-05-22" min="2018-01-01" max="2025-01-01" id="endDayInput"
+                           th:field="*{endDay}" class="form-control" th:errorclass="is-invalid">
+                    <span th:errors="*{endDay}" class="invalid-feedback"></span>
+                </div>
+                <div class="col">
+                    <label for="endTimeInput" class="form-label">終了時間</label>
+                    <input type="time" value="20:40" id="endTimeInput" th:field="*{endTime}" class="form-control" th:errorclass="is-invalid">
+                    <span th:errors="*{endTime}" class="invalid-feedback"></span>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <button type="submit"  class="btn btn-primary" th:text="${mode == 'CREATE'} ? '作成' : '編集'">作成</button>
+                <a th:href="${mode == 'CREATE'} ? @{/methods/list} : @{/methods/{id}(id=${id})}" class="btn btn-secondary">戻る</a>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>

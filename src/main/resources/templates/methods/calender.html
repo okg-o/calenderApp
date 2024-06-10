@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}"
+>
+<head>
+    <title>カレンダー</title>
+    <link rel ="stylesheet" href ="../css/calender.css">
+</head>
+
+<body>
+<section layout:fragment="content">
+    <script th:inline="javascript">
+        const calender = /*[[${calender}]]*/;
+
+        window.onload = function lengthFix() {
+    	    var plans = document.getElementsByClassName("plan2");
+    	    for (let i = 0; i <= plans.length - 1; i++){
+    	        if(calender[i].terms > 0) {
+                    console.log(calender[i].terms);
+    	            let length = calender[i].terms * 100;
+    	            plans[i].style.width = length + 'px';
+                 }
+            }
+        }
+    </script>
+    <a th:href="@{/methods/create}" class="btn btn-primary">作成</a>
+    <table>
+        <h2 th:text="${calender[15].year + '年' +calender[15].month + '月'}">年 月</h2>
+        <thead>
+        <tr>
+            <th>日</th>
+            <th>月</th>
+            <th>火</th>
+            <th>水</th>
+            <th>木</th>
+            <th>金</th>
+            <th>土</th>
+        </tr>
+        </thead>
+        <tbody th:object="${calender}">
+        <div class="plan1">
+            <tr>
+                <td class="day" th:text="*{[0].day}"></td>
+                <td class="day" th:text="*{[1].day}"></td>
+                <td class="day" th:text="*{[2].day}"></td>
+                <td class="day" th:text="*{[3].day}"></td>
+                <td class="day" th:text="*{[4].day}"></td>
+                <td class="day" th:text="*{[5].day}"></td>
+                <td class="day" th:text="*{[6].day}"></td>
+            </tr>
+            <tr>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+            </tr>
+            <tr>
+                <td class="day" th:text="*{[7].day}"></td>
+                <td class="day" th:text="*{[8].day}"></td>
+                <td class="day" th:text="*{[9].day}"></td>
+                <td class="day" th:text="*{[10].day}"></td>
+                <td class="day" th:text="*{[11].day}"></td>
+                <td class="day" th:text="*{[12].day}"></td>
+                <td class="day" th:text="*{[13].day}"></td>
+            </tr>
+            <tr>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+            </tr>
+            <tr>
+                <td class="day" th:text="*{[14].day}"></td>
+                <td class="day" th:text="*{[15].day}"></td>
+                <td class="day" th:text="*{[16].day}"></td>
+                <td class="day" th:text="*{[17].day}"></td>
+                <td class="day" th:text="*{[18].day}"></td>
+                <td class="day" th:text="*{[19].day}"></td>
+                <td class="day" th:text="*{[20].day}"></td>
+            </tr>
+            <tr>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+            </tr>
+            <tr>
+                <td class="day" th:text="*{[21].day}"></td>
+                <td class="day" th:text="*{[22].day}"></td>
+                <td class="day" th:text="*{[23].day}"></td>
+                <td class="day" th:text="*{[24].day}"></td>
+                <td class="day" th:text="*{[25].day}"></td>
+                <td class="day" th:text="*{[26].day}"></td>
+                <td class="day" th:text="*{[27].day}"></td>
+            </tr>
+            <tr>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+            </tr>
+            <tr>
+                <td class="day" th:text="*{[28].day}"></td>
+                <td class="day" th:text="*{[29].day}"></td>
+                <td class="day" th:text="*{[30].day}"></td>
+                <td class="day" th:text="*{[31].day}"></td>
+                <td class="day" th:text="*{[32].day}"></td>
+                <td class="day" th:text="*{[33].day}"></td>
+                <td class="day" th:text="*{[34].day}"></td>
+            </tr>
+            <tr>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+                <td class="plan"></td>
+            </tr>
+        </div>
+    </tbody>
+    </table>
+    <tbody th:object="${calender}">
+    <div class="plan3">
+        <table>
+            <tr>
+                <td class="plan2" th:text="*{[0].title} + *{[0].startTime} + *{[0].endTime}"></td>
+                <td class="plan2" th:text="*{[1].title} + *{[1].startTime} + *{[1].endTime}"></td>
+                <td class="plan2" th:text="*{[2].title} + *{[2].startTime} + *{[2].endTime}"></td>
+                <td class="plan2" th:text="*{[3].title} + *{[3].startTime} + *{[3].endTime}"></td>
+                <td class="plan2" th:text="*{[4].title} + *{[4].startTime} + *{[4].endTime}"></td>
+                <td class="plan2" th:text="*{[5].title} + *{[5].startTime} + *{[5].endTime}"></td>
+                <td class="plan2" th:text="*{[6].title} + *{[6].startTime} + *{[6].endTime}"></td>
+            </tr>
+            <tr>
+                <td class="plan2" th:text="*{[7].title} + *{[7].startTime} + *{[7].endTime}"></td>
+                <td class="plan2" th:text="*{[8].title} + *{[8].startTime} + *{[8].endTime}"></td>
+                <td class="plan2" th:text="*{[9].title} + *{[9].startTime} + *{[9].endTime}"></td>
+                <td class="plan2" th:text="*{[10].title} + *{[10].startTime} + *{[10].endTime}"></td>
+                <td class="plan2" th:text="*{[11].title} + *{[11].startTime} + *{[11].endTime}"></td>
+                <td class="plan2" th:text="*{[12].title} + *{[12].startTime} + *{[12].endTime}"></td>
+                <td class="plan2" th:text="*{[13].title} + *{[13].startTime} + *{[13].endTime}"></td>
+            </tr>
+            <tr>
+                <td class="plan2" th:text="*{[14].title} + *{[14].startTime} + *{[14].endTime}"></td>
+                <td class="plan2" th:text="*{[15].title} + *{[15].startTime} + *{[15].endTime}"></td>
+                <td class="plan2" th:text="*{[16].title} + *{[16].startTime} + *{[16].endTime}"></td>
+                <td class="plan2" th:text="*{[17].title} + *{[17].startTime} + *{[17].endTime}"></td>
+                <td class="plan2" th:text="*{[18].title} + *{[18].startTime} + *{[18].endTime}"></td>
+                <td class="plan2" th:text="*{[19].title} + *{[19].startTime} + *{[19].endTime}"></td>
+                <td class="plan2" th:text="*{[20].title} + *{[20].startTime} + *{[20].endTime}"></td>
+            </tr>
+            <tr>
+                <td class="plan2" th:text="*{[21].title} + *{[21].startTime} + *{[21].endTime}"></td>
+                <td class="plan2" th:text="*{[22].title} + *{[22].startTime} + *{[22].endTime}"></td>
+                <td class="plan2" th:text="*{[23].title} + *{[23].startTime} + *{[23].endTime}"></td>
+                <td class="plan2" th:text="*{[24].title} + *{[24].startTime} + *{[24].endTime}"></td>
+                <td class="plan2" th:text="*{[25].title} + *{[25].startTime} + *{[25].endTime}"></td>
+                <td class="plan2" th:text="*{[26].title} + *{[26].startTime} + *{[26].endTime}"></td>
+                <td class="plan2" th:text="*{[27].title} + *{[27].startTime} + *{[27].endTime}"></td>
+            </tr>
+            <tr>
+                <td class="plan2" th:text="*{[28].title} + *{[28].startTime} + *{[28].endTime}"></td>
+                <td class="plan2" th:text="*{[29].title} + *{[29].startTime} + *{[29].endTime}"></td>
+                <td class="plan2" th:text="*{[30].title} + *{[30].startTime} + *{[30].endTime}"></td>
+                <td class="plan2" th:text="*{[31].title} + *{[31].startTime} + *{[31].endTime}"></td>
+                <td class="plan2" th:text="*{[32].title} + *{[32].startTime} + *{[32].endTime}"></td>
+                <td class="plan2" th:text="*{[33].title} + *{[33].startTime} + *{[33].endTime}"></td>
+                <td class="plan2" th:text="*{[34].title} + *{[34].startTime} + *{[34].endTime}"></td>
+            </tr>
+        </table>
+    </div>
+    </tbody>
+</section>
+
+</body>
+</html>

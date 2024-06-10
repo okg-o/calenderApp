@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+*{
+
+}
+
+td{
+    border: 1px solid #000;
+}
+
+
+
+th{
+    border: 2px solid #000;
+    text-align: center;
+}
+
+tr{
+
+}
+
+
+.day{
+
+    }
+
+.plan1{
+  position: relative;/*親要素にrelative*/
+
+}
+
+
+
+.plan{
+    width: 100px;
+    height: 60px;
+    background: #FFCCCC;
+    border-bottom: 2px solid black;
+}
+
+.plan2{
+  position: absolute;/*重ねたい子要素にabsolute*/
+  width: 100px;
+  height: 60px;
+  background-color: transparent;
+  top:40%;
+  left:0%;
+}
