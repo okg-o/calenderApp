@@ -1,4 +1,4 @@
-package com.example.todo;
+package com.example.calender;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

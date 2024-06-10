@@ -1,7 +1,10 @@
-CREATE TABLE tasks
+CREATE TABLE plans
 (
   id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  summary VARCHAR(256) NOT NULL,
-  description TEXT,
-  status VARCHAR(256) NOT NULL
+  title VARCHAR(256) NOT NULL,
+  description VARCHAR(256),
+  startDay DATE NOT NULL,
+  startTime TIME NOT NULL,
+  endDay DATE NOT NULL,
+  endTime TIME NOT NULL
 );

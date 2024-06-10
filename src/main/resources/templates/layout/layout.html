@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">TODOアプリ</title>
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">カレンダーアプリ</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
 <body>
@@ -14,17 +14,26 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" th:href="@{/}">TODO</a>
+            <a class="navbar-brand" th:href="@{/methods}">Calender</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+                        <a class="nav-link active" aria-current="page" th:href="@{/methods}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/tasks}">タスク一覧</a>
+                        <a class="nav-link" th:href="@{/methods/form}">作成</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/methods/list}">予定一覧</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/methods/setting}">設定</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/methods/search}">検索</a>
                     </li>
                 </ul>
             </div>
